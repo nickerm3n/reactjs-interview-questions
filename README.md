@@ -46,15 +46,15 @@ You can download the PDF and Epub version of this repository from the latest run
 |33 | [What are the different phases of component lifecycle?](#what-are-the-different-phases-of-component-lifecycle) |
 |34 | [What are the lifecycle methods of React?](#what-are-the-lifecycle-methods-of-react) |
 |35 | [What are Higher-Order components?](#what-are-higher-order-components) |
-|36 | [How to create props proxy for HOC component?](#how-to-create-props-proxy-for-hoc-component) |
+|36 | [How to fetch data with React Hooks?](#how-to-fetch-data-with-react-hooks) |
 |37 | [What is context?](#what-is-context) |
 |38 | [What is children prop?](#what-is-children-prop) |
 |39 | [What is prop drilling?](#what-is-prop-drilling) |
 |40 | [What is the purpose of using super constructor with props argument?](#what-is-the-purpose-of-using-super-constructor-with-props-argument) |
 |41 | [What is reconciliation?](#what-is-reconciliation) |
-|42 | [How to set state with a dynamic key name?](#how-to-set-state-with-a-dynamic-key-name) |
-|43 | [What would be the common mistake of function being called every time the component renders?](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
-|44 | [Is lazy function supports named exports?](#is-lazy-function-supports-named-exports) |
+|42 | [How do you conditionally render components?](#how-do-you-conditionally-render-components) |
+|43 | [What are error boundaries in React v16](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
+|44 | [What are hooks?](#what-are-hooks) |
 |45 | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute) |
 |46 | [What are fragments?](#what-are-fragments) |
 |47 | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs) |
@@ -825,28 +825,45 @@ You can download the PDF and Epub version of this repository from the latest run
 
     **[⬆ Back to Top](#table-of-contents)**
 
-36. ### How to create props proxy for HOC component?
+36. ### How to fetch data with React Hooks?
+     The effect hook called `useEffect` is used to fetch the data with axios from the API and to set the data in the local state of the component with the state hook’s update function.
 
-    You can add/edit props passed to the component using _props proxy_ pattern like this:
+     Let's take an example in which it fetches list of react articles from the API
 
-    ```jsx harmony
-    function HOC(WrappedComponent) {
-      return class Test extends Component {
-        render() {
-          const newProps = {
-            title: "New Header",
-            footer: false,
-            showFeatureX: false,
-            showFeatureY: true,
-          };
+     ```javascript
+     import React, { useState, useEffect } from 'react';
+     import axios from 'axios';
 
-          return <WrappedComponent {...this.props} {...newProps} />;
-        }
-      };
-    }
-    ```
+     function App() {
+       const [data, setData] = useState({ hits: [] });
 
-    **[⬆ Back to Top](#table-of-contents)**
+       useEffect(() => {
+         (async () => {
+           const result = await axios(
+             'http://hn.algolia.com/api/v1/search?query=react',
+           );
+
+           setData(result.data);
+         })()
+       }, []);
+
+       return (
+         <ul>
+           {data.hits.map(item => (
+             <li key={item.objectID}>
+               <a href={item.url}>{item.title}</a>
+             </li>
+           ))}
+         </ul>
+       );
+     }
+
+     export default App;
+     ```
+
+     Remember we provided an empty array as second argument to the effect hook to avoid activating it on component updates but only on mounting of the component. i.e, It fetches only on component mount.
+
+   **[⬆ Back to Top](#table-of-contents)**
 
 37. ### What is context?
 
@@ -937,40 +954,81 @@ You can download the PDF and Epub version of this repository from the latest run
 
     **[⬆ Back to Top](#table-of-contents)**
 
-42. ### How to set state with a dynamic key name?
+42. ### How do you conditionally render components?
 
-    If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish this with _computed property names_.
-
-    ```javascript
-    handleInputChange(event) {
-      this.setState({ [event.target.id]: event.target.value })
-    }
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-43. ### What would be the common mistake of function being called every time the component renders?
-
-    You need to make sure that function is not being called while passing the function as a parameter.
+    In some cases you want to render different components depending on some state. JSX does not render `false` or `undefined`, so you can use conditional *short-circuiting* to render a given part of your component only if a certain condition is true.
 
     ```jsx harmony
-    render() {
-      // Wrong: handleClick is called instead of passed as a reference!
-      return <button onClick={this.handleClick()}>{'Click Me'}</button>
-    }
+    const MyComponent = ({ name, address }) => (
+      <div>
+        <h2>{name}</h2>
+        {address &&
+          <p>{address}</p>
+        }
+      </div>
+    )
     ```
 
-    Instead, pass the function itself without parenthesis:
+    If you need an `if-else` condition then use *ternary operator*.
 
     ```jsx harmony
-    render() {
-      // Correct: handleClick is passed as a reference!
-      return <button onClick={this.handleClick}>{'Click Me'}</button>
+    const MyComponent = ({ name, address }) => (
+      <div>
+        <h2>{name}</h2>
+        {address
+          ? <p>{address}</p>
+          : <p>{'Address is not available'}</p>
+        }
+      </div>
+    )
+    ```
+
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+43. ### What are error boundaries in React v16?
+
+    *Error boundaries* are components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
+
+    A class component becomes an error boundary if it defines a new lifecycle method called `componentDidCatch(error, info)` or `static getDerivedStateFromError() `:
+
+    ```jsx harmony
+    class ErrorBoundary extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = { hasError: false }
+      }
+
+      componentDidCatch(error, info) {
+        // You can also log the error to an error reporting service
+        logErrorToMyService(error, info)
+      }
+
+      static getDerivedStateFromError(error) {
+         // Update state so the next render will show the fallback UI.
+         return { hasError: true };
+       }
+
+      render() {
+        if (this.state.hasError) {
+          // You can render any custom fallback UI
+          return <h1>{'Something went wrong.'}</h1>
+        }
+        return this.props.children
+      }
     }
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+    After that use it as a regular component:
 
+    ```jsx harmony
+    <ErrorBoundary>
+      <MyWidget />
+    </ErrorBoundary>
+    ```
+
+
+   **[⬆ Back to Top](#table-of-contents)**
 44. ### What are hooks?
 
     Hooks is a new feature(React 16.8) that lets you use state and other React features without writing a class.
