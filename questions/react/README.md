@@ -260,7 +260,7 @@
     }
     ```
 
-    ![state](images/state.jpg)
+    ![state](../../images/state.jpg)
 
     State is similar to props, but it is private and fully controlled by the component ,i.e., it is not accessible to any other component till the owner component decides to pass it.
 
@@ -646,15 +646,15 @@
 
     1. Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation.
 
-       ![vdom](images/vdom1.png)
+       ![vdom](../../images/vdom1.png)
 
     2. Then the difference between the previous DOM representation and the new one is calculated.
 
-       ![vdom2](images/vdom2.png)
+       ![vdom2](../../images/vdom2.png)
 
     3. Once the calculations are done, the real DOM will be updated with only the things that have actually changed.
 
-       ![vdom3](images/vdom3.png)
+       ![vdom3](../../images/vdom3.png)
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -769,11 +769,11 @@
 
     React 16.3+ Phases (or an [interactive version](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/))
 
-    ![phases 16.4+](images/phases16.4.png)
+    ![phases 16.4+](../../images/phases16.4.png)
 
     Before React 16.3
 
-    ![phases 16.2](images/phases.png)
+    ![phases 16.2](../../images/phases.png)
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1167,7 +1167,7 @@
 
      The workflow between dispatcher, stores and views components with distinct inputs and outputs as follows:
 
-     ![flux](images/flux.png)
+     ![flux](../../images/flux.png)
 
 **[⬆ Back to Top](#table-of-contents)**
 
