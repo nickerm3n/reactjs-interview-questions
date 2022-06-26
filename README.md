@@ -1,10 +1,13 @@
 # React Interview Questions & Answers
 
-**Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions.
+---
+<div>
+<ol>
+<li>This <a href="./questions/react">React course</a> is good if you’re struggling to learn React beyond the basics</li>
+</ol>
+</div>
 
-## Downloading PDF/Epub formats
-
-You can download the PDF and Epub version of this repository from the latest run on the [actions tab](https://github.com/sudheerj/reactjs-interview-questions/actions).
+---
 
 ### Table of Contents
 
@@ -1029,7 +1032,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 
    **[⬆ Back to Top](#table-of-contents)**
-   
+
 44. ### What are hooks?
 
     Hooks is a new feature(React 16.8) that lets you use state and other React features without writing a class.
