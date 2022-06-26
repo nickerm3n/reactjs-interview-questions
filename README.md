@@ -99,6 +99,18 @@ You can download the PDF and Epub version of this repository from the latest run
 |86| [How to set initial state in Redux?](#how-to-set-initial-state-in-redux) |
 |87| [How Relay is different from Redux?](#how-relay-is-different-from-redux) |
 |88| [What is an action in Redux?](#what-is-an-action-in-redux) |
+|   | **React Router** |
+|89| [What is React Router?](#what-is-react-router) |
+|90| [How React Router is different from history library?](#how-react-router-is-different-from-history-library) |
+|91| [What are the \<Router> components of React Router v4?](#what-are-the-router-components-of-react-router-v4) |
+|92| [What is the purpose of push and replace methods of history?](#what-is-the-purpose-of-push-and-replace-methods-of-history) |
+|93| [How do you programmatically navigate using React router v4?](#how-do-you-programmatically-navigate-using-react-router-v4) |
+|94| [How to get query parameters in React Router v4](#how-to-get-query-parameters-in-react-router-v4) |
+|95| [Why you get "Router may have only one child element" warning?](#why-you-get-router-may-have-only-one-child-element-warning) |
+|96| [How to pass params to history.push method in React Router v4?](#how-to-pass-params-to-historypush-method-in-react-router-v4) |
+|97| [How to implement default or NotFound page?](#how-to-implement-default-or-notfound-page) |
+|98| [How to get history on React Router v4?](#how-to-get-history-on-react-router-v4) |
+|99| [How to perform automatic redirect after login?](#how-to-perform-automatic-redirect-after-login) |
 
 ## Core React
 
@@ -1096,7 +1108,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-152. ### What is flux?
+51. ### What is flux?
 
      _Flux_ is an _application design paradigm_ used as a replacement for the more traditional MVC pattern. It is not a framework or a library but a new kind of architecture that complements React and the concept of Unidirectional Data Flow. Facebook uses this pattern internally when working with React.
 
@@ -1106,13 +1118,13 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-153. ### What is Redux?
+52. ### What is Redux?
 
      _Redux_ is a predictable state container for JavaScript apps based on the _Flux design pattern_. Redux can be used together with React, or with any other view library. It is tiny (about 2kB) and has no dependencies.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-154. ### What are the core principles of Redux?
+53. ### What are the core principles of Redux?
 
      Redux follows three fundamental principles:
 
@@ -1122,7 +1134,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-155. ### What are the downsides of Redux compared to Flux?
+54. ### What are the downsides of Redux compared to Flux?
 
      Instead of saying downsides we can say that there are few compromises of using Redux over Flux. Those are as follows:
 
@@ -1132,7 +1144,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-156. ### What is the difference between `mapStateToProps()` and `mapDispatchToProps()`?
+55. ### What is the difference between `mapStateToProps()` and `mapDispatchToProps()`?
 
      `mapStateToProps()` is a utility which helps your component get updated state (which is updated by some other components):
 
@@ -1168,13 +1180,13 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-157. ### Can I dispatch an action in reducer?
+56. ### Can I dispatch an action in reducer?
 
      Dispatching an action within a reducer is an **anti-pattern**. Your reducer should be _without side effects_, simply digesting the action payload and returning a new state object. Adding listeners and dispatching actions within the reducer can lead to chained actions and other side effects.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-158. ### How to access Redux store outside a component?
+57. ### How to access Redux store outside a component?
 
      You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.
 
@@ -1186,7 +1198,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-159. ### What are the drawbacks of MVW pattern?
+58. ### What are the drawbacks of MVW pattern?
 
      1. DOM manipulation is very expensive which causes applications to behave slow and inefficient.
      2. Due to circular dependencies, a complicated model was created around models and views.
@@ -1195,7 +1207,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-160. ### Are there any similarities between Redux and RxJS?
+59. ### Are there any similarities between Redux and RxJS?
 
      These libraries are very different for very different purposes, but there are some vague similarities.
 
@@ -1203,7 +1215,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-161. ### How to dispatch an action on load?
+60. ### How to dispatch an action on load?
 
      You can dispatch an action in `componentDidMount()` method and in `render()` method you can verify the data.
 
@@ -1233,7 +1245,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-162. ### How to use `connect()` from React Redux?
+61. ### How to use `connect()` from React Redux?
 
      You need to follow two steps to use your store in your container:
 
@@ -1259,7 +1271,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-163. ### How to reset state in Redux?
+62. ### How to reset state in Redux?
 
      You need to write a _root reducer_ in your application which delegate handling the action to the reducer generated by `combineReducers()`.
 
@@ -1301,7 +1313,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-164. ### Whats the purpose of `at` symbol in the Redux connect decorator?
+63. ### Whats the purpose of `at` symbol in the Redux connect decorator?
 
      The **@** symbol is in fact a JavaScript expression used to signify decorators. _Decorators_ make it possible to annotate and modify classes and properties at design time.
 
@@ -1356,7 +1368,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-165. ### What is the difference between React context and React Redux?
+64. ### What is the difference between React context and React Redux?
 
      You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was designed for.
 
@@ -1364,13 +1376,13 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-166. ### Why are Redux state functions called reducers?
+65. ### Why are Redux state functions called reducers?
 
      Reducers always return the accumulation of the state (based on all previous and current actions). Therefore, they act as a reducer of state. Each time a Redux reducer is called, the state and action are passed as parameters. This state is then reduced (or accumulated) based on the action, and then the next state is returned. You could _reduce_ a collection of actions and an initial state (of the store) on which to perform these actions to get the resulting final state.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-167. ### How to make AJAX request in Redux?
+66. ### How to make AJAX request in Redux?
 
      You can use `redux-thunk` middleware which allows you to define async actions.
 
@@ -1398,13 +1410,13 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-168. ### Should I keep all component's state in Redux store?
+67. ### Should I keep all component's state in Redux store?
 
      Keep your data in the Redux store, and the UI related state internally in the component.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-169. ### What is the proper way to access Redux store?
+68. ### What is the proper way to access Redux store?
 
      The best way to access your store in a component is to use the `connect()` function, that creates a new component that wraps around your existing one. This pattern is called _Higher-Order Components_, and is generally the preferred way of extending a component's functionality in React. This allows you to map state and action creators to your component, and have them passed in automatically as your store updates.
 
@@ -1440,7 +1452,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-170. ### What is the difference between component and container in React Redux?
+69. ### What is the difference between component and container in React Redux?
 
      **Component** is a class or function component that describes the presentational part of your application.
 
@@ -1448,7 +1460,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-171. ### What is the purpose of the constants in Redux?
+70. ### What is the purpose of the constants in Redux?
 
      Constants allows you to easily find all usages of that specific functionality across the project when you use an IDE. It also prevents you from introducing silly bugs caused by typos – in which case, you will get a `ReferenceError` immediately.
 
@@ -1502,7 +1514,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-172. ### What are the different ways to write `mapDispatchToProps()`?
+71. ### What are the different ways to write `mapDispatchToProps()`?
 
      There are a few ways of binding _action creators_ to `dispatch()` in `mapDispatchToProps()`.
 
@@ -1528,7 +1540,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-173. ### What is the use of the `ownProps` parameter in `mapStateToProps()` and `mapDispatchToProps()`?
+72. ### What is the use of the `ownProps` parameter in `mapStateToProps()` and `mapDispatchToProps()`?
 
      If the `ownProps` parameter is specified, React Redux will pass the props that were passed to the component into your _connect_ functions. So, if you use a connected component:
 
@@ -1550,7 +1562,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-174. ### How to structure Redux top level directories?
+73. ### How to structure Redux top level directories?
 
      Most of the applications has several top-level directories as below:
 
@@ -1564,7 +1576,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-175. ### What is redux-saga?
+74. ### What is redux-saga?
 
      `redux-saga` is a library that aims to make side effects (asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.
 
@@ -1576,13 +1588,13 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-176. ### What is the mental model of redux-saga?
+75. ### What is the mental model of redux-saga?
 
      _Saga_ is like a separate thread in your application, that's solely responsible for side effects. `redux-saga` is a redux _middleware_, which means this thread can be started, paused and cancelled from the main application with normal Redux actions, it has access to the full Redux application state and it can dispatch Redux actions as well.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-177. ### What are the differences between `call()` and `put()` in redux-saga?
+76. ### What are the differences between `call()` and `put()` in redux-saga?
 
      Both `call()` and `put()` are effect creator functions. `call()` function is used to create effect description, which instructs middleware to call the promise. `put()` function creates an effect, which instructs middleware to dispatch an action to the store.
 
@@ -1604,25 +1616,25 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-178. ### What is Redux Thunk?
+77. ### What is Redux Thunk?
 
      _Redux Thunk_ middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods `dispatch()` and `getState()` as parameters.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-179. ### What are the differences between `redux-saga` and `redux-thunk`?
+78. ### What are the differences between `redux-saga` and `redux-thunk`?
 
      Both _Redux Thunk_ and _Redux Saga_ take care of dealing with side effects. In most of the scenarios, Thunk uses _Promises_ to deal with them, whereas Saga uses _Generators_. Thunk is simple to use and Promises are familiar to many developers, Sagas/Generators are more powerful but you will need to learn them. But both middleware can coexist, so you can start with Thunks and introduce Sagas when/if you need them.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-180. ### What is Redux DevTools?
+79. ### What is Redux DevTools?
 
      _Redux DevTools_ is a live-editing time travel environment for Redux with hot reloading, action replay, and customizable UI. If you don't want to bother with installing Redux DevTools and integrating it into your project, consider using Redux DevTools Extension for Chrome and Firefox.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-181. ### What are the features of Redux DevTools?
+80. ### What are the features of Redux DevTools?
 
      Some of the main features of Redux DevTools are below,
 
@@ -1634,7 +1646,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-182. ### What are Redux selectors and why to use them?
+81. ### What are Redux selectors and why to use them?
 
      _Selectors_ are functions that take Redux state as an argument and return some data to pass to the component.
 
@@ -1651,13 +1663,13 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-183. ### What is Redux Form?
+82. ### What is Redux Form?
 
      _Redux Form_ works with React and Redux to enable a form in React to use Redux to store all of its state. Redux Form can be used with raw HTML5 inputs, but it also works very well with common UI frameworks like Material UI, React Widgets and React Bootstrap.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-184. ### What are the main features of Redux Form?
+83. ### What are the main features of Redux Form?
 
      Some of the main features of Redux Form are:
 
@@ -1667,7 +1679,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-185. ### How to add multiple middlewares to Redux?
+84. ### How to add multiple middlewares to Redux?
 
      You can use `applyMiddleware()`.
 
@@ -1683,7 +1695,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-186. ### How to set initial state in Redux?
+85. ### How to set initial state in Redux?
 
      You need to pass initial state as second argument to createStore:
 
@@ -1702,11 +1714,11 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-187. ### How Relay is different from Redux?
+86. ### How Relay is different from Redux?
 
      Relay is similar to Redux in that they both use a single store. The main difference is that relay only manages state originated from the server, and all access to the state is used via _GraphQL_ queries (for reading data) and mutations (for changing data). Relay caches the data for you and optimizes data fetching for you, by fetching only changed data and nothing more.
 
-188. ### What is an action in Redux?
+87. ### What is an action in Redux?
 
      _Actions_ are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of information for the store. Actions must have a type property that indicates the type of action being performed.
 
@@ -1721,226 +1733,250 @@ You can download the PDF and Epub version of this repository from the latest run
 
 **[⬆ Back to Top](#table-of-contents)**
 
-## React supported libraries & Integration
 
-**[⬆ Back to Top](#table-of-contents)**
+## React Router
 
-192. ### What is reselect and how it works?
 
-     _Reselect_ is a **selector library** (for Redux) which uses _memoization_ concept. It was originally written to compute derived data from Redux-like applications state, but it can't be tied to any architecture or library.
+   **[⬆ Back to Top](#table-of-contents)**
+    
+88. ### What is React Router?
 
-     Reselect keeps a copy of the last inputs/outputs of the last call, and recomputes the result only if one of the inputs changes. If the the same inputs are provided twice in a row, Reselect returns the cached output. It's memoization and cache are fully customizable.
+     React Router is a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
 
-**[⬆ Back to Top](#table-of-contents)**
 
-193. ### What is Flow?
+   **[⬆ Back to Top](#table-of-contents)**
+    
+89. ### How React Router is different from history library?
 
-     _Flow_ is a _static type checker_ designed to find type errors in JavaScript. Flow types can express much more fine-grained distinctions than traditional type systems. For example, Flow helps you catch errors involving `null`, unlike most type systems.
+     React Router is a wrapper around the `history` library which handles interaction with the browser's `window.history` with its browser and hash histories. It also provides memory history which is useful for environments that don't have global history, such as mobile app development (React Native) and unit testing with Node.
 
-**[⬆ Back to Top](#table-of-contents)**
 
-194. ### What is the difference between Flow and PropTypes?
+   **[⬆ Back to Top](#table-of-contents)**
+    
+90. ### What are the `<Router>` components of React Router v4?
 
-     Flow is a _static analysis tool_ (static checker) which uses a superset of the language, allowing you to add type annotations to all of your code and catch an entire class of bugs at compile time.
+     React Router v4 provides below 3 `<Router>` components:
 
-     PropTypes is a _basic type checker_ (runtime checker) which has been patched onto React. It can't check anything other than the types of the props being passed to a given component. If you want more flexible typechecking for your entire project Flow/TypeScript are appropriate choices.
+     1. `<BrowserRouter>`
+     2. `<HashRouter>`
+     3. `<MemoryRouter>`
 
-**[⬆ Back to Top](#table-of-contents)**
+     The above components will create *browser*, *hash*, and *memory* history instances. React Router v4 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
 
-195. ### How to use Font Awesome icons in React?
 
-     The below steps followed to include Font Awesome in React:
+   **[⬆ Back to Top](#table-of-contents)**
+    
+91. ### What is the purpose of `push()` and `replace()` methods of `history`?
 
-     1. Install `font-awesome`:
+     A history instance has two methods for navigation purpose.
 
-        ```console
-        $ npm install --save font-awesome
-        ```
+     1. `push()`
+     2. `replace()`
 
-     2. Import `font-awesome` in your `index.js` file:
+     If you think of the history as an array of visited locations, `push()` will add a new location to the array and `replace()` will replace the current location in the array with the new one.
 
-        ```javascript
-        import "font-awesome/css/font-awesome.min.css";
-        ```
 
-     3. Add Font Awesome classes in `className`:
+   **[⬆ Back to Top](#table-of-contents)**
+    
+92. ### How do you programmatically navigate using React Router v4?
 
-        ```javascript
-        render() {
-          return <div><i className={'fa fa-spinner'} /></div>
-        }
-        ```
+     There are three different ways to achieve programmatic routing/navigation within components.
 
-**[⬆ Back to Top](#table-of-contents)**
+     1. **Using the `withRouter()` higher-order function:**
 
-196. ### What is React Dev Tools?
+         The `withRouter()` higher-order function will inject the history object as a prop of the component. This object provides `push()` and `replace()` methods to avoid the usage of context.
 
-     _React Developer Tools_ let you inspect the component hierarchy, including component props and state. It exists both as a browser extension (for Chrome and Firefox), and as a standalone app (works with other environments including Safari, IE, and React Native).
+         ```jsx harmony
+         import { withRouter } from 'react-router-dom' // this also works with 'react-router-native'
 
-     The official extensions available for different browsers or environments.
+         const Button = withRouter(({ history }) => (
+           <button
+             type='button'
+             onClick={() => { history.push('/new-location') }}
+           >
+             {'Click Me!'}
+           </button>
+         ))
+         ```
 
-     1. **Chrome extension**
-     2. **Firefox extension**
-     3. **Standalone app** (Safari, React Native, etc)
+     2. **Using `<Route>` component and render props pattern:**
 
-**[⬆ Back to Top](#table-of-contents)**
+         The `<Route>` component passes the same props as `withRouter()`, so you will be able to access the history methods through the history prop.
 
-197. ### Why is DevTools not loading in Chrome for local files?
+         ```jsx harmony
+         import { Route } from 'react-router-dom'
 
-     If you opened a local HTML file in your browser (`file://...`) then you must first open _Chrome Extensions_ and check `Allow access to file URLs`.
+         const Button = () => (
+           <Route render={({ history }) => (
+             <button
+               type='button'
+               onClick={() => { history.push('/new-location') }}
+             >
+               {'Click Me!'}
+             </button>
+           )} />
+         )
+         ```
 
-**[⬆ Back to Top](#table-of-contents)**
+     3. **Using context:**
 
-198. ### How to use Polymer in React?
+         This option is not recommended and treated as unstable API.
 
-     You need to follow below steps to use Polymer in React,
+         ```jsx harmony
+         const Button = (props, context) => (
+           <button
+             type='button'
+             onClick={() => {
+               context.history.push('/new-location')
+             }}
+           >
+             {'Click Me!'}
+           </button>
+         )
 
-     1. Create a Polymer element:
+         Button.contextTypes = {
+           history: React.PropTypes.shape({
+             push: React.PropTypes.func.isRequired
+           })
+         }
+         ```
 
-        ```jsx harmony
-        <link
-          rel="import"
-          href="../../bower_components/polymer/polymer.html"
-        />;
-        Polymer({
-          is: "calender-element",
-          ready: function () {
-            this.textContent = "I am a calender";
-          },
-        });
-        ```
 
-     2. Create the Polymer component HTML tag by importing it in a HTML document, e.g. import it in the `index.html` of your React application:
+   **[⬆ Back to Top](#table-of-contents)**
+    
+93. ### How to get query parameters in React Router v4?
 
-        ```html
-        <link
-          rel="import"
-          href="./src/polymer-components/calender-element.html"
-        />
-        ```
-
-     3. Use that element in the JSX file:
-
-        ```javascript
-        import React from "react";
-
-        class MyComponent extends React.Component {
-          render() {
-            return <calender-element />;
-          }
-        }
-
-        export default MyComponent;
-        ```
-
-**[⬆ Back to Top](#table-of-contents)**
-
-199. ### What are the advantages of React over Vue.js?
-
-     React has the following advantages over Vue.js:
-
-     1. Gives more flexibility in large apps developing.
-     2. Easier to test.
-     3. Suitable for mobile apps creating.
-     4. More information and solutions available.
-
-**Note:** The above list of advantages are purely opinionated and it vary based on the professional experience. But they are helpful as base parameters.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-200. ### What is the difference between React and Angular?
-
-     Let's see the difference between React and Angular in a table format.
-
-     | React                                                                                       | Angular                                                                                                                            |
-     | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-     | React is a library and has only the View layer                                              | Angular is a framework and has complete MVC functionality                                                                          |
-     | React handles rendering on the server side                                                  | AngularJS renders only on the client side but Angular 2 and above renders on the server side                                       |
-     | React uses JSX that looks like HTML in JS which can be confusing                            | Angular follows the template approach for HTML, which makes code shorter and easy to understand                                    |
-     | React Native, which is a React type to build mobile applications are faster and more stable | Ionic, Angular's mobile native app is relatively less stable and slower                                                            |
-     | In React, data flows only in one way and hence debugging is easy                            | In Angular, data flows both way i.e it has two-way data binding between children and parent and hence debugging is often difficult |
-
-**Note:** The above list of differences are purely opinionated and it vary based on the professional experience. But they are helpful as base parameters.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-201. ### Why React tab is not showing up in DevTools?
-
-     When the page loads, _React DevTools_ sets a global named `__REACT_DEVTOOLS_GLOBAL_HOOK__`, then React communicates with that hook during initialization. If the website is not using React or if React fails to communicate with DevTools then it won't show up the tab.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-202. ### What are Styled Components?
-
-     `styled-components` is a JavaScript library for styling React applications. It removes the mapping between styles and components, and lets you write actual CSS augmented with JavaScript.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-203. ### Give an example of Styled Components?
-
-     Lets create `<Title>` and `<Wrapper>` components with specific styles for each.
+     The ability to parse query strings was taken out of React Router v4 because there have been user requests over the years to support different implementation. So the decision has been given to users to choose the implementation they like. The recommended approach is to use query strings library.
 
      ```javascript
-     import React from "react";
-     import styled from "styled-components";
-
-     // Create a <Title> component that renders an <h1> which is centered, red and sized at 1.5em
-     const Title = styled.h1`
-       font-size: 1.5em;
-       text-align: center;
-       color: palevioletred;
-     `;
-
-     // Create a <Wrapper> component that renders a <section> with some padding and a papayawhip background
-     const Wrapper = styled.section`
-       padding: 4em;
-       background: papayawhip;
-     `;
+     const queryString = require('query-string');
+     const parsed = queryString.parse(props.location.search);
      ```
 
-     These two variables, `Title` and `Wrapper`, are now components that you can render just like any other react component.
+     You can also use `URLSearchParams` if you want something native:
+
+     ```javascript
+     const params = new URLSearchParams(props.location.search)
+     const foo = params.get('name')
+     ```
+
+     You should use a *polyfill* for IE11.
+
+
+   **[⬆ Back to Top](#table-of-contents)**
+    
+94. ### Why you get "Router may have only one child element" warning?
+
+     You have to wrap your Route's in a `<Switch>` block because `<Switch>` is unique in that it renders a route exclusively.
+
+     At first you need to add `Switch` to your imports:
+
+     ```javascript
+     import { Switch, Router, Route } from 'react-router'
+     ```
+
+     Then define the routes within `<Switch>` block:
 
      ```jsx harmony
-     <Wrapper>
-       <Title>{"Lets start first styled component!"}</Title>
-     </Wrapper>
+     <Router>
+       <Switch>
+         <Route {/* ... */} />
+         <Route {/* ... */} />
+       </Switch>
+     </Router>
      ```
 
-**[⬆ Back to Top](#table-of-contents)**
 
-204. ### What is Relay?
+   **[⬆ Back to Top](#table-of-contents)**
+    
+95. ### How to pass params to `history.push` method in React Router v4?
 
-     Relay is a JavaScript framework for providing a data layer and client-server communication to web applications using the React view layer.
+     While navigating you can pass props to the `history` object:
 
-**[⬆ Back to Top](#table-of-contents)**
-
-205. ### How to use TypeScript in `create-react-app` application?
-
-     Starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. i.e, `create-react-app` now supports typescript natively. You can just pass `--typescript` option as below
-
-     ```bash
-     npx create-react-app my-app --typescript
-
-     # or
-
-     yarn create react-app my-app --typescript
+     ```javascript
+     this.props.history.push({
+       pathname: '/template',
+       search: '?name=sudheer',
+       state: { detail: response.data }
+     })
      ```
 
-     But for lower versions of react scripts, just supply `--scripts-version` option as `react-scripts-ts` while you create a new project. `react-scripts-ts` is a set of adjustments to take the standard `create-react-app` project pipeline and bring TypeScript into the mix.
+     The `search` property is used to pass query params in `push()` method.
 
-     Now the project layout should look like the following:
 
+   **[⬆ Back to Top](#table-of-contents)**
+    
+96. ### How to implement *default* or *NotFound* page?
+
+     A `<Switch>` renders the first child `<Route>` that matches. A `<Route>` with no path always matches. So you just need to simply drop path attribute as below
+
+     ```jsx harmony
+     <Switch>
+       <Route exact path="/" component={Home}/>
+       <Route path="/user" component={User}/>
+       <Route component={NotFound} />
+     </Switch>
      ```
-     my-app/
-     ├─ .gitignore
-     ├─ images.d.ts
-     ├─ node_modules/
-     ├─ public/
-     ├─ src/
-     │  └─ ...
-     ├─ package.json
-     ├─ tsconfig.json
-     ├─ tsconfig.prod.json
-     ├─ tsconfig.test.json
-     └─ tslint.json
+
+
+   **[⬆ Back to Top](#table-of-contents)**
+    
+97. ### How to get history on React Router v4?
+     Below are the list of steps to get history object on React Router v4,
+
+     1. Create a module that exports a `history` object and import this module across the project.
+
+         For example, create `history.js` file:
+
+         ```javascript
+         import { createBrowserHistory } from 'history'
+
+         export default createBrowserHistory({
+           /* pass a configuration object here if needed */
+         })
+         ```
+
+     2. You should use the `<Router>` component instead of built-in routers. Import the above `history.js` inside `index.js` file:
+
+         ```jsx harmony
+         import { Router } from 'react-router-dom'
+         import history from './history'
+         import App from './App'
+
+         ReactDOM.render((
+           <Router history={history}>
+             <App />
+           </Router>
+         ), holder)
+         ```
+
+     3. You can also use push method of `history` object similar to built-in history object:
+
+         ```javascript
+         // some-other-file.js
+         import history from './history'
+
+         history.push('/go-here')
+         ```
+
+
+   **[⬆ Back to Top](#table-of-contents)**
+    
+98. ### How to perform automatic redirect after login?
+
+     The `react-router` package provides `<Redirect>` component in React Router. Rendering a `<Redirect>` will navigate to a new location. Like server-side redirects, the new location will override the current location in the history stack.
+
+     ```javascript
+     import React, { Component } from 'react'
+     import { Redirect } from 'react-router'
+
+     export default class LoginComponent extends Component {
+       render() {
+         if (this.state.isLoggedIn === true) {
+           return <Redirect to="/your/redirect/page" />
+         } else {
+           return <div>{'Login Please'}</div>
+         }
+       }
+     }
      ```
